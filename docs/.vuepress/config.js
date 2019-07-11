@@ -165,7 +165,9 @@ function genHomeSlidebar() {
         {
             title: "SpringBoot",
             collapsable: false,
-            children: getSpringBootSlidebar(true)
+            children: [
+                "quick-start"
+            ]
         },
         {
             title: "SpringCloud",
