@@ -4,7 +4,7 @@ module.exports = {
     // port: "3000",// 默认8080
     base: "/",// 这是部署到github相关的配置
     //base: "/blog",
-    //dest: "public",
+    dest: "dist",
     markdown: {
         externalLinks: {
             target: '_blank', rel: 'noopener noreferrer'
