@@ -187,13 +187,6 @@ function genHomeSlidebar() {
             children: [
                 "quick-start"
             ]
-        },
-        {
-            title: "FAQ",
-            collapsable: false,
-            children: [
-                "faq"
-            ]
         }
     ]
 }
