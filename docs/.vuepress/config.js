@@ -2,10 +2,9 @@ module.exports = {
     title: 'Jenkins\'s blog',
     description: '我的个人网站',
     // port: "3000",// 默认8080
-    base: "/",// 这是部署到github相关的配置
-    //base: "/blog",
-    dest: "dist",
-    serviceWorker: true, // 是否开启 PWA
+    //base: "/",// 这是部署到github相关的配置
+    base: "/blog",
+    dest: "public",
     markdown: {
         externalLinks: {
             target: '_blank', rel: 'noopener noreferrer'
