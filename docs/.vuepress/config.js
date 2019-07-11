@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Jenkins\'s blog',
-    description: '我的个人网站',
+    description: 'Talk is cheap. Show me the code',
     // port: "3000",// 默认8080
     //base: "/",// 这是部署到github相关的配置
     base: "/blog/",
