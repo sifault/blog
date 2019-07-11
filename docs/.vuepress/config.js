@@ -2,8 +2,8 @@ module.exports = {
     title: 'Jenkins\'s blog',
     description: '我的个人网站',
     // port: "3000",// 默认8080
-    //base: "/",// 这是部署到github相关的配置
-    base: "/blog",
+    base: "/",// 这是部署到github相关的配置
+    //base: "/blog",
     dest: "public",
     markdown: {
         externalLinks: {
