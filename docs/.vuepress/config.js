@@ -3,8 +3,8 @@ module.exports = {
     description: '我的个人网站',
     // port: "3000",// 默认8080
     //base: "/",// 这是部署到github相关的配置
-    base: "/blog",
-    dest: "public",
+    base: "/blog/",
+    dest: "dist",
     markdown: {
         externalLinks: {
             target: '_blank', rel: 'noopener noreferrer'
@@ -231,7 +231,7 @@ function genEnSlidebar() {
             title: "FAQ",
             collapsable: false,
             children: [
-                "faq"
+                "quick-start"
             ]
         }
     ]
