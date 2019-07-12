@@ -6,6 +6,7 @@ module.exports = {
     base: "/blog/",
     dest: "dist",
     markdown: {
+        lineNumbers: true, // 代码块显示行号
         externalLinks: {
             target: '_blank', rel: 'noopener noreferrer'
         }
@@ -14,7 +15,7 @@ module.exports = {
         "/": {
             lang: "zh-CN",
             title: "Jenkins's 博客",
-            description: "我的个人网站"
+            description: "Talk is cheap. Show me the code"
         },
         // "/en/": {
         //     lang: "en-US",
@@ -37,60 +38,61 @@ module.exports = {
                 // 该语言在下拉菜单中的标签
                 //label: '简体中文',
                 editLinkText: "在 GitHub 上编辑此页",
-                lastUpdated: "上次更新",
+                // lastUpdated: "上次更新",
                 nav: [
                     {
-                        text: "Home",
-                        link: "/home/"
+                        text: "我的主页",
+                        link: "/"
                     },
                     {
-                        text: "Java",
-                        link: "/java/"
-                    },
-                    {
-                        text: "SpringBoot",
-                        link: "/springboot/"
-                    },
-                    {
-                        text: "SpringCloud",
-                        link: "/springcloud/"
-                    },
-                    {
-                        text: "Archives",
-                        link: "/archives/"
-                    },
-                    {
-                        text: "About",
-                        link: "/about/"
-                    },
-                    {
-                        text: "Ecology",
+                        text: "技术笔记",
                         items: [
                             {
-                                text: "spring-boot",
-                                link: "https://gitee.com/wbc505357999/spring-boot-assembly"
+                                text: "Java",
+                                link: "/Java/"
+                            },
+                            {
+                                text: "SpringBoot",
+                                link: "/springboot/"
+                            },
+                            {
+                                text: "SpringCloud",
+                                link: "/springcloud/"
                             }
                         ]
                     },
                     {
-                        text: "Git",
+                        text: "开源项目",
                         items: [
                             {
-                                text: "gitee",
+                                text: "SpringBoot2.x教程",
+                                link: "https://github.com/wbc505357999/SpringBootTutorial"
+                            }
+                        ]
+                    },
+                    {
+                        text: "关于博客",
+                        link: "/about/"
+                    },
+                    {
+                        text: "开源地址",
+                        items: [
+                            {
+                                text: "Gitee",
                                 link: "https://gitee.com/505357999"
                             },
                             {
-                                text: "github",
+                                text: "Github",
                                 link: "https://github.com/wbc505357999"
                             }
                         ]
                     }
                 ],
                 sidebar: {
-                    "/home/": genHomeSlidebar(true),
-                    "/java/": getJavaSlidebar(true),
-                    "/springboot/": getSpringBootSlidebar(true),
-                    "/springcloud/": getSpringCloudSlidebar(true)
+                    "/opensource/": getOpensourceSlidebar(),
+                    "/java/": getJavaSlidebar(),
+                    "/springboot/": getSpringBootSlidebar(),
+                    "/springcloud/": getSpringCloudSlidebar()
                 }
             },
             // '/en/': {
@@ -153,123 +155,74 @@ module.exports = {
         }
     }
 };
-
-// 获取首页侧边导航栏
-function genHomeSlidebar() {
-    return [
-        {
-            title: "Java",
-            collapsable: false,
-            children: ["", "quick-start"]
-        },
-        {
-            title: "SpringBoot",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        },
-        {
-            title: "SpringCloud",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        },
-        {
-            title: "Archives",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        },
-        {
-            title: "About",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        }
-    ]
-}
-
-// 获取英文侧边导航栏
-function genEnSlidebar() {
-    return [
-        {
-            title: "Java",
-            collapsable: false,
-            children: ["", "quick-start"]
-        },
-        {
-            title: "SpringBoot",
-            collapsable: false,
-            children: getSpringBootSlidebar(true)
-        },
-        {
-            title: "SpringCloud",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        },
-        {
-            title: "Archives",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        },
-        {
-            title: "About",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        },
-        {
-            title: "FAQ",
-            collapsable: false,
-            children: [
-                "quick-start"
-            ]
-        }
-    ]
-}
 // 获取java侧边导航栏
 function getJavaSlidebar() {
     return [
-        ["java-1","Java(一)：入门篇"],
-        ["java-2","Java(二)：Web 综合开发"]
-    ]
-}
-
-// 获取springboot侧边导航栏
-function getSpringBootSlidebar() {
-    return [
         {
-            title: "SpringBoot教程",
+            title: "Java",
             collapsable: false,
             children: [
-                ["course/course-1","SpringBoot(一)：入门篇"],
-                ["course/course-2","SpringBoot(二)：Web 综合开发"]
-            ]
-        },
-        {
-            title: "SpringBoot番外",
-            collapsable: false,
-            children: [
-                ["extra/extra-1","SpringBoot(一)：入门篇"],
-                ["extra/extra-2","SpringBoot(二)：Web 综合开发"]
+                {
+                    title: "基础",
+                    collapsable: false,
+                    children: [
+                        ["base/java-1","HashMap和HashSet区别"],
+                        ["base/java-2","HashMap遍历的四种方法"],
+                        ["base/java-3","final、finally和finalize的区别"]
+                    ]
+                }
             ]
         }
     ]
 }
 
-// 获取springcloud侧边导航栏
+// 获取SpringBoot侧边导航栏
+function getSpringBootSlidebar() {
+    return [
+        {
+            title: "SpringBoot",
+            collapsable: false,
+            children: [
+                {
+                    title: "SpringBoot教程",
+                    collapsable: false,
+                    children: [
+                        ["course/chapter1","第一章：快速入门"],
+                        ["course/chapter2","第二章：Web 综合开发"]
+                    ]
+                },
+                {
+                    title: "SpringBoot番外",
+                    collapsable: false,
+                    children: [
+                        ["extra/extra1","使用IDEA创建SpringBoot项目"],
+                        ["extra/extra2","第二章：测试2"]
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+// 获取SpringCloud侧边导航栏
 function getSpringCloudSlidebar() {
     return [
         ["springcloud-1","SpringCloud(一)：入门篇"],
         ["springcloud-2","SpringCloud(二)：Web 综合开发"]
+    ]
+}
+
+// 获取Opensource侧边导航栏
+function getOpensourceSlidebar() {
+    return [
+        {
+            title: "开源项目",
+            collapsable: false,
+            children: [
+                ["1","SpringBoot集成MyBatisPlus"],
+                ["2","基于SpringBoot + Shiro + MyBatisPlus的权限管理框架"],
+                ["3","自制spring boot starter for fastjson"]
+            ]
+        }
     ]
 }
