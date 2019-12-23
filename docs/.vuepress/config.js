@@ -14,7 +14,7 @@ module.exports = {
     locales: {
         "/": {
             lang: "zh-CN",
-            title: "Jenkins's 博客",
+            title: "SiFault 我思故我在",
             description: "Talk is cheap. Show me the code"
         },
         // "/en/": {
@@ -28,8 +28,10 @@ module.exports = {
     ],
     // 主题配置
     themeConfig: {
+        logo: '/logo.png',
         editLinks: true,
-        sidebarDepth: 1, // 侧边栏显示层级
+        sidebar: 'auto',
+        sidebarDepth: 3, // 侧边栏显示层级
         // 默认主题多语言配置
         locales: {
             "/": {
@@ -38,18 +40,24 @@ module.exports = {
                 // 该语言在下拉菜单中的标签
                 //label: '简体中文',
                 editLinkText: "在 GitHub 上编辑此页",
-                // lastUpdated: "上次更新",
+                lastUpdated: "上次更新",
                 nav: [
                     {
                         text: "我的主页",
                         link: "/"
                     },
                     {
+                        text: "标签分类",
+                        link: '/tags/',
+                        tags: true
+                    },
+                    {
                         text: "技术笔记",
                         items: [
                             {
                                 text: "Java",
-                                link: "/Java/"
+                                link: "/Java/",
+                                children: getJavaSlidebar()
                             },
                             {
                                 text: "SpringBoot",
@@ -71,7 +79,7 @@ module.exports = {
                         ]
                     },
                     {
-                        text: "关于博客",
+                        text: "关于我",
                         link: "/about/"
                     },
                     {
@@ -88,12 +96,12 @@ module.exports = {
                         ]
                     }
                 ],
-                sidebar: {
+                /*sidebar: {
                     "/opensource/": getOpensourceSlidebar(),
                     "/java/": getJavaSlidebar(),
                     "/springboot/": getSpringBootSlidebar(),
                     "/springcloud/": getSpringCloudSlidebar()
-                }
+                }*/
             },
             // '/en/': {
             //     selectText: 'Languages',
@@ -155,22 +163,18 @@ module.exports = {
         }
     }
 };
+
 // 获取java侧边导航栏
 function getJavaSlidebar() {
     return [
         {
             title: "Java",
             collapsable: false,
-            children: [
+            items: [
                 {
-                    title: "基础",
-                    collapsable: false,
-                    children: [
-                        ["base/java-1","HashMap和HashSet区别"],
-                        ["base/java-2","HashMap遍历的四种方法"],
-                        ["base/java-3","final、finally和finalize的区别"]
-                    ]
-                }
+                    text: "HashMap和HashSet区别",
+                    link: "base/java-1"
+                },
             ]
         }
     ]
@@ -187,16 +191,16 @@ function getSpringBootSlidebar() {
                     title: "SpringBoot教程",
                     collapsable: false,
                     children: [
-                        ["course/chapter1","第一章：快速入门"],
-                        ["course/chapter2","第二章：Web 综合开发"]
+                        ["course/chapter1", "第一章：快速入门"],
+                        ["course/chapter2", "第二章：Web 综合开发"]
                     ]
                 },
                 {
                     title: "SpringBoot番外",
                     collapsable: false,
                     children: [
-                        ["extra/extra1","使用IDEA创建SpringBoot项目"],
-                        ["extra/extra2","第二章：测试2"]
+                        ["extra/extra1", "使用IDEA创建SpringBoot项目"],
+                        ["extra/extra2", "第二章：测试2"]
                     ]
                 }
             ]
@@ -207,8 +211,8 @@ function getSpringBootSlidebar() {
 // 获取SpringCloud侧边导航栏
 function getSpringCloudSlidebar() {
     return [
-        ["springcloud-1","SpringCloud(一)：入门篇"],
-        ["springcloud-2","SpringCloud(二)：Web 综合开发"]
+        ["springcloud-1", "SpringCloud(一)：入门篇"],
+        ["springcloud-2", "SpringCloud(二)：Web 综合开发"]
     ]
 }
 
@@ -219,9 +223,9 @@ function getOpensourceSlidebar() {
             title: "开源项目",
             collapsable: false,
             children: [
-                ["1","SpringBoot集成MyBatisPlus"],
-                ["2","基于SpringBoot + Shiro + MyBatisPlus的权限管理框架"],
-                ["3","自制spring boot starter for fastjson"]
+                ["1", "SpringBoot集成MyBatisPlus"],
+                ["2", "基于SpringBoot + Shiro + MyBatisPlus的权限管理框架"],
+                ["3", "自制spring boot starter for fastjson"]
             ]
         }
     ]
