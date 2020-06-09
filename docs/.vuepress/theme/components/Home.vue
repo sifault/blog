@@ -49,6 +49,7 @@
       v-if="data.footer"
     >
       {{ data.footer }}
+      <NavLink :item="recordLink" />
     </div>
   </main>
 </template>
@@ -74,6 +75,12 @@ export default {
       return {
         link: this.data.githubLink,
         text: this.data.githubText
+      }
+    },
+    recordLink () {
+      return {
+        link: this.data.recordLink,
+        text: this.data.recordText
       }
     }
   }

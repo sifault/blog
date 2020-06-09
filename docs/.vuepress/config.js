@@ -3,7 +3,7 @@ module.exports = {
     description: 'Talk is cheap. Show me the code',
     // port: "3000",// 默认8080
     //base: "/",// 这是部署到github相关的配置
-    base: "/blog/",
+    base: "/",
     dest: "dist",
     markdown: {
         lineNumbers: true, // 代码块显示行号
